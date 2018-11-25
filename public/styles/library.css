@@ -2,7 +2,7 @@
 	--space: 4em;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	padding: 0 var(--space);
+	padding: 0 calc(var(--space) * 2);
 	margin: var(--space) 0;
 	column-gap: var(--space);
 	row-gap: var(--space);

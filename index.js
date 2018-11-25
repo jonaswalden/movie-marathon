@@ -21,11 +21,16 @@ app.use(router.routes());
 app.listen(3000);
 
 async function renderPage (ctx) {
-	ctx.body = await nunjucks.render('index.njk', {
-		title: 'Cos-a-thon #1 2018',
-		playlist: library.slice(0, 2),
-		movies: library,
-	});
+	try {
+		ctx.body = await nunjucks.render('index.njk', {
+			title: 'Cos-a-thon #1 2018',
+			playlist: library.slice(0, 2),
+			movies: library,
+		});
+	}
+	catch (err) {
+		ctx.throw(err);
+	}
 }
 
 async function renderPlaylist (ctx) {
@@ -34,7 +39,7 @@ async function renderPlaylist (ctx) {
 		file('01-akrobatik-prelude_to_balance-cms.mp3'),
 		file('05-akrobatik-remind_my_soul-cms.mp3'),
 	];
-
+	
 	ctx.body = playlist.join("\n");
 
 	function file (relativePath) {

@@ -61,11 +61,11 @@
 .playlist__item__library {
 	flex-grow: 1;
 	position: relative;
+	padding-right: var(--tab-width);
 }
 
 .playlist__item__content {
 	display: flex;
-	padding-right: var(--tab-width);
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
