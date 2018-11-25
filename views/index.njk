@@ -1,0 +1,73 @@
+{% extends 'layout/base.njk' %}
+
+{% block body %}
+	<header>
+		<h1>Cos-a-Thon #1 2018</h1>
+	</header>
+
+	<section class="playlist">
+		<ol>	
+			{% for movie in playlist %}
+				<li class="playlist__item">
+					<div class="playlist__item__splash" style="background-image: url({{movie.splash}})"></div>
+
+					<div class="playlist__item__tab">
+						<span>{{movie.title}}</span>
+					</div>
+
+					<div class="playlist__item__content">
+						<div>
+							<img src="https://m.media-amazon.com/images/M/{{movie.cover}}" width="320">
+							<h3>{{movie.title}}</h3>
+							<p>{{movie.year}}, {{movie.duration}} min</p>
+							<p>{{movie.genres | join(', ')}}</p>
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+
+			<li class="playlist__item playlist__item--add playlist__item--open">
+				<div class="playlist__item__splash"></div>
+
+				<div class="playlist__item__tab">
+					<span>More +</span>
+				</div>
+
+				<div class="playlist__item__library library">	
+					<h3>Library</h3>
+					<ul>
+						{% for movie in movies %}
+							<li class="library__item">
+								<img src="https://m.media-amazon.com/images/M/{{movie.cover}}">
+								<div>
+									<h4>{{movie.title}}</h4>
+									<p>{{movie.year}}, {{movie.duration}} min</p>
+									<p>{{movie.genres | join(', ')}}</p>
+								</div>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</li>
+		</ol>
+
+		<template>
+			<li class="playlist__item">
+				<div class="playlist__item__splash"></div>
+
+				<div class="playlist__item__tab">
+					<span></span>
+				</div>
+
+				<div class="playlist__item__content">
+					<div>
+						<img width="320">
+						<h3></h3>
+						<p></p>
+						<p></p>
+					</div>
+				</div>
+			</li>
+		</template>
+	</section>
+{% endblock %}

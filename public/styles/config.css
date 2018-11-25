@@ -1,0 +1,9 @@
+:root {
+	--t-background-props: 255, 255, 255;
+	--c-background: rgb(var(--t-background-props));
+	--t-foreground-props: 8, 8, 8;
+	--c-foreground: rgb(var(--t-foreground-props));
+	--c-border: rgba(0, 0, 0, 0.2);
+
+	--t-line-height: 1.2;
+}

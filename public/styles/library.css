@@ -1,0 +1,29 @@
+.library > ul {
+	--space: 4em;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 0 var(--space);
+	margin: var(--space) 0;
+	column-gap: var(--space);
+	row-gap: var(--space);
+}
+
+.library__item {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	min-height: 33vh;
+}
+
+.library__item > img {
+	margin-right: 1em;
+	width: 240px;
+}
+
+.library__item > div {
+	width: 240px;
+}
+
+.library__item p:last-child {
+	margin-bottom: 0;
+}

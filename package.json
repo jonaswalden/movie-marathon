@@ -1,0 +1,17 @@
+{
+  "name": "movie-marathon",
+  "version": "1.0.0",
+  "description": "movie marathon wizard",
+  "main": "index.js",
+  "scripts": {
+    "test": "-"
+  },
+  "author": "Jonas Waldén",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "nunjucks": "^3.1.4"
+  }
+}
