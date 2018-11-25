@@ -22,8 +22,7 @@ app.listen(3000);
 
 async function renderPage (ctx) {
 	ctx.body = await nunjucks.render('index.njk', {
-		title: 'New Node stack',
-		name: 'Joood?',
+		title: 'Cos-a-thon #1 2018',
 		playlist: library.slice(0, 2),
 		movies: library,
 	});
