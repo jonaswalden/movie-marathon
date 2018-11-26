@@ -4,7 +4,8 @@
   "description": "movie marathon wizard",
   "main": "index.js",
   "scripts": {
-    "test": "-"
+    "test": "-",
+    "build-scripts": "rollup -i assets/scripts/main.jsx -o public/scripts/test.js"
   },
   "author": "Jonas Waldén",
   "license": "ISC",
@@ -13,5 +14,11 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "nunjucks": "^3.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-transform-react-jsx": "^7.1.6",
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3"
   }
 }
