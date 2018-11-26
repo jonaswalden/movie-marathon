@@ -1,6 +1,14 @@
 import babel from 'rollup-plugin-babel';
+import nodeResolve from 'rollup-plugin-node-resolve';
 
 export default {
-	external: {'preact'},
-	plugins: [babel()],
+	input: 'assets/scripts/main.jsx',
+	output: {
+		file: 'public/scripts/test.js',
+		format: "iife",
+	},
+	plugins: [
+		nodeResolve(),
+		babel(),
+	],
 };
