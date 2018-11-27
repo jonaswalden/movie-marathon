@@ -711,82 +711,7 @@
 	  return _extends.apply(this, arguments);
 	}
 
-	class ListItem extends Component {
-	  constructor(props) {
-	    super(props);
-	  }
-
-	  toggle(open) {
-	    if (open) {
-	      this.props.onOpen(this.props.id);
-	      this.element.scrollIntoView({
-	        behavior: 'smooth',
-	        inline: 'center'
-	      });
-	    }
-	  }
-
-	  render(props, state) {
-	    const open = props.openItem === props.id;
-	    return h("li", {
-	      class: `playlist__item ${open ? "playlist__item--open" : ""}`,
-	      ref: element => this.element = element
-	    }, h("div", {
-	      class: "playlist__item__splash",
-	      style: `background-image: url(${props.splash}`
-	    }), h("div", {
-	      class: "playlist__item__tab",
-	      onClick: this.toggle.bind(this, true)
-	    }, h("span", null, props.title)), h("div", {
-	      class: "playlist__item__content"
-	    }, h("div", null, h("img", {
-	      src: `https://m.media-amazon.com/images/M/${props.cover}`,
-	      width: "320"
-	    }), h("h3", null, props.title), h("p", null, props.year, ", ", props.duration, " min"), h("p", null, props.genres.join(', ')))));
-	  }
-
-	}
-
-	class Playlist extends Component {
-	  constructor(props) {
-	    super(props);
-	    const currentItem = props.items.find(item => item.status === 1);
-	    this.state = {
-	      items: props.items,
-	      openItem: currentItem && currentItem.id
-	    };
-	  }
-
-	  onOpen(openItem) {
-	    this.setState({
-	      openItem
-	    });
-	  }
-
-	  render(props, state) {
-	    return h("main", {
-	      class: "playlist"
-	    }, h("ol", null, state.items.map(item => h(ListItem, _extends({
-	      key: item.id,
-	      openItem: state.openItem,
-	      onOpen: this.onOpen.bind(this)
-	    }, item)))));
-	  }
-
-	}
-
 	var movies = [{
-	  id: 0,
-	  title: 'Dances with Wolves',
-	  year: 1990,
-	  duration: 181,
-	  genres: ['Adventure', 'Drama', 'Romance'],
-	  rating: 8,
-	  description: '\nLt. John Dunbar, exiled to a remote western Civil War outpost, befriends wolves and Indians, making him an intolerable aberration in the military.    ',
-	  url: 'http://www.imdb.com/title/tt0099348/',
-	  cover: 'MV5BMTY3OTI5NDczN15BMl5BanBnXkFtZTcwNDA0NDY3Mw@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTY3OTI5NDczN15BMl5BanBnXkFtZTcwNDA0NDY3Mw@@._V1_SX640_SY720_-splash.jpg'
-	}, {
 	  id: 1,
 	  title: 'The Untouchables',
 	  year: 1987,
@@ -1160,7 +1085,140 @@
 	  url: 'http://www.imdb.com/title/tt1985443/',
 	  cover: 'MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_.jpg',
 	  splash: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_-3-splash.jpg'
+	}, {
+	  id: 35,
+	  title: 'Dances with Wolves',
+	  year: 1990,
+	  duration: 181,
+	  genres: ['Adventure', 'Drama', 'Romance'],
+	  rating: 8,
+	  description: '\nLt. John Dunbar, exiled to a remote western Civil War outpost, befriends wolves and Indians, making him an intolerable aberration in the military.    ',
+	  url: 'http://www.imdb.com/title/tt0099348/',
+	  cover: 'MV5BMTY3OTI5NDczN15BMl5BanBnXkFtZTcwNDA0NDY3Mw@@._V1_SX640_SY720_.jpg',
+	  splash: '/images/MV5BMTY3OTI5NDczN15BMl5BanBnXkFtZTcwNDA0NDY3Mw@@._V1_SX640_SY720_-splash.jpg'
 	}];
+
+	class Library extends Component {
+	  constructor(props) {
+	    super(props);
+	    this.state = {
+	      movies: movies.slice()
+	    };
+	  }
+
+	  selectItem(selectedMovie) {
+	    this.props.addPlaylistItem(selectedMovie);
+	    this.setState({
+	      movies: this.state.movies.filter(movie => movie.id !== selectedMovie.id)
+	    });
+	  }
+
+	  render(props, state) {
+	    return h("section", {
+	      class: "library"
+	    }, h("ul", null, state.movies.map(movie => h(LibraryItem, {
+	      key: movie.id,
+	      select: this.selectItem.bind(this, movie),
+	      movie: movie
+	    }))));
+	  }
+
+	}
+
+	function LibraryItem(props) {
+	  return h("li", {
+	    class: "library__item"
+	  }, h("img", {
+	    src: `https://m.media-amazon.com/images/M/${props.movie.cover}`
+	  }), h("div", null, h("h4", {
+	    onClick: props.select
+	  }, props.movie.title), h("p", null, props.movie.year, ", ", props.movie.duration, " min"), h("p", null, props.movie.genres.join(', '))));
+	}
+
+	class ListItem extends Component {
+	  constructor(props) {
+	    super(props);
+	  }
+
+	  toggle(open) {
+	    if (!open) return this.props.onItemToggle(null);
+	    this.props.onItemToggle(this.props.id);
+	    this.element.scrollIntoView({
+	      behavior: 'smooth',
+	      inline: 'center'
+	    });
+	  }
+
+	  render(props, state) {
+	    const open = props.openItemId === props.id;
+	    return h("li", {
+	      class: `playlist__item ${open ? "playlist__item--open" : ""}`,
+	      ref: element => this.element = element
+	    }, h("div", {
+	      class: "playlist__item__splash",
+	      style: `background-image: url(${props.splash}`
+	    }), h("div", {
+	      class: "playlist__item__tab",
+	      onClick: this.toggle.bind(this, true)
+	    }, h("span", null, props.title)), h("div", {
+	      class: "playlist__item__content"
+	    }, h("div", null, h("img", {
+	      src: `https://m.media-amazon.com/images/M/${props.cover}`,
+	      width: "320"
+	    }), h("h3", null, props.title), h("p", null, props.year, ", ", props.duration, " min"), h("p", null, props.genres.join(', ')))));
+	  }
+
+	}
+
+	class Playlist extends Component {
+	  constructor(props) {
+	    super(props);
+	    const currentItem = props.items.find(item => item.status === 1);
+	    this.state = {
+	      items: props.items,
+	      openItemId: currentItem && currentItem.id
+	    };
+	  }
+
+	  onItemToggle(openItemId) {
+	    this.setState({
+	      openItemId
+	    });
+	  }
+
+	  addItem(movie) {
+	    const newItem = Object.assign({
+	      status: 0
+	    }, movie);
+	    this.setState({
+	      items: this.state.items.concat(newItem)
+	    });
+	  }
+
+	  render(props, state) {
+	    return h("main", {
+	      class: "playlist"
+	    }, h("ol", null, state.items.map(item => {
+	      return h(ListItem, _extends({
+	        key: item.id,
+	        openItemId: state.openItemId,
+	        onItemToggle: this.onItemToggle.bind(this)
+	      }, item));
+	    }), h("li", {
+	      class: `playlist__item playlist__item--add ${!state.openItemId ? "playlist__item--open" : ""}`
+	    }, h("div", {
+	      class: "playlist__item__splash"
+	    }), h("div", {
+	      class: "playlist__item__tab",
+	      onClick: this.onItemToggle.bind(this, null)
+	    }, h("span", null, "More +")), h("div", {
+	      class: "playlist__item__library"
+	    }, h(Library, {
+	      addPlaylistItem: this.addItem.bind(this)
+	    })))));
+	  }
+
+	}
 
 	const playlistItems = movies.slice(0, 3).map((movie, index) => Object.assign({
 	  status: index === 1 ? 1 : 2

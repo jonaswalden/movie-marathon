@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "-",
-    "build-scripts": "rollup -c rollup.config.js -i assets/scripts/main.jsx -o public/scripts/test.js"
+    "build-scripts": "rollup -w -c rollup.config.js -i assets/scripts/main.jsx -o public/scripts/test.js"
   },
   "author": "Jonas Waldén",
   "license": "ISC",
