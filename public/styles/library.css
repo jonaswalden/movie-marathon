@@ -1,13 +1,38 @@
 .library {
+	--space: 4em;
 	overflow: auto;
+	position: relative;
+}
+
+.library form {
+	position: sticky;
+	align-self: stretch;
+	top: 0;
+	padding: 1em var(--space) 0.5em;
+	margin-bottom: 1.5em;
+	background: var(--c-background--dark);
+	text-align: center;
+}
+
+.library form::after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 100%;
+	background: linear-gradient(
+			rgba(var(--c-background--dark-props), 1), 
+			rgba(var(--c-background--dark-props), 0)
+		);
+	height: 1.5em;
 }
 
 .library ul {
-	--space: 4em;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	padding: 0 calc(var(--space) * 2);
-	margin: var(--space) 0;
+	margin: 0;
+	padding: 0;
 	column-gap: var(--space);
 	row-gap: var(--space);
 }
@@ -34,4 +59,5 @@
 
 .library.panel .panel__content {
 	justify-content: flex-start;
+	padding: var(--space) calc(var(--space) * 2);
 }

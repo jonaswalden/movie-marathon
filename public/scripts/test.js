@@ -1161,14 +1161,25 @@
 	class Library extends Component {
 	  constructor(props) {
 	    super(props);
+	    this.controls = {};
 	    this.selectItem = this.selectItem.bind(this);
+	    this.updateFilter = this.updateFilter.bind(this);
 	    this.state = {
-	      movies: movies.slice()
+	      movies: movies.slice(),
+	      sortProperty: 'title',
+	      sortReversed: false
 	    };
 	  }
 
 	  selectItem(selectedMovie) {
 	    this.props.addPlaylistItem(selectedMovie);
+	  }
+
+	  updateFilter() {
+	    this.setState({
+	      sortProperty: this.controls.sortProperty.value,
+	      sortReversed: this.controls.sortReversed.checked
+	    });
 	  }
 
 	  render(props, state) {
@@ -1180,7 +1191,24 @@
 	      bullet: "+",
 	      label: "More",
 	      default: true
-	    }, h("ul", null, state.movies.filter(movie => !usedMovieIds.includes(movie.id)).map(movie => {
+	    }, h("form", null, h("label", null, "Order by"), h("select", {
+	      onChange: this.updateFilter,
+	      ref: element => this.controls.sortProperty = element
+	    }, h("option", {
+	      value: "title"
+	    }, "Title"), h("option", {
+	      value: "year"
+	    }, "Year"), h("option", {
+	      value: "duration"
+	    }, "Duration")), h("label", null, "Reverse"), h("input", {
+	      type: "checkbox",
+	      onChange: this.updateFilter,
+	      ref: element => this.controls.sortReversed = element
+	    })), h("ul", null, state.movies.filter(movie => !usedMovieIds.includes(movie.id)).sort((a, b) => {
+	      const order = a[state.sortProperty] > b[state.sortProperty];
+	      if (state.sortReversed) return order ? -1 : 1;
+	      return order ? 1 : -1;
+	    }).map(movie => {
 	      return h(LibraryItem, {
 	        key: movie.id,
 	        select: this.selectItem,
@@ -1294,12 +1322,10 @@
 	  }
 
 	  componentDidUpdate() {
-	    console.log('did update');
 	    setItem('playlistItems', this.state.playlistItems);
 	  }
 
 	  render(props, state) {
-	    console.log('render', state.playlistItems);
 	    return h("body", {
 	      class: "panel__container"
 	    }, h(Panel, {

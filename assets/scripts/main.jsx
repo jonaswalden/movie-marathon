@@ -37,12 +37,10 @@ class Main extends Component {
 	}
 
 	componentDidUpdate () {
-		console.log('did update');
 		storage.setItem('playlistItems', this.state.playlistItems)
 	}
 
 	render (props, state) {
-		console.log('render', state.playlistItems);
 		return <body class="panel__container">
 			<Panel tag="header" bullet="☰" label="Cosathon #1 2018" />
 			<Playlist items={state.playlistItems} editItem={this.editPlaylistItem} />

@@ -37,9 +37,25 @@ img {
 	vertical-align: bottom;
 }
 
-button {
+label {
+	margin: 0 0.5em 0 1em;
+}
+
+label::after {
+	content: ":";
+}
+
+label:first-child {
+	margin-left: 0;
+}
+
+button,
+select {
 	font: inherit;
 	color: inherit;
+}
+
+button {
 	border: 2px solid currentColor;
 	border-radius: 3px;
 	padding: 0.5em 1em;
