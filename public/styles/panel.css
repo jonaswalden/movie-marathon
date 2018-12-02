@@ -80,6 +80,11 @@
 	box-shadow: var(--c-image-shadow);
 }
 
+.panel--open[style] button {
+	box-shadow: var(--c-image-shadow), inset var(--c-image-shadow);
+	text-shadow: inherit;
+}
+
 .panel--open[style] .panel__tab > span {
 	text-shadow: var(--c-content-shadow--reversed);
 }

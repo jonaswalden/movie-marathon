@@ -22,7 +22,6 @@ class Main extends Component {
 	}
 
 	addPlaylistItem (movie) {
-		console.log("adding", this.state.playlistItems);
 		this.setState({
 			playlistItems: this.state.playlistItems.concat({
 				status: 0,

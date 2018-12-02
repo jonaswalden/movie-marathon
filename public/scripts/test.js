@@ -1187,14 +1187,33 @@
 	class ListItem extends Component {
 	  constructor(props) {
 	    super(props);
+	    this.copyMediaUrl = this.copyMediaUrl.bind(this);
+	  }
+
+	  copyMediaUrl() {
+	    const {
+	      value
+	    } = this.mediaUrlInput;
+	    this.mediaUrlInput.focus();
+	    this.mediaUrlInput.setSelectionRange(0, value.length);
+	    document.execCommand('copy');
+	    this.setState({
+	      startedTime: new Date(),
+	      status: 1
+	    });
+	  }
+
+	  static timeStamp(date) {
+	    return [date.getHours(), date.getMinutes()].map(n => n.toString()).map(s => s.padStart(2, '0')).join(':');
 	  }
 
 	  render(props, state) {
+	    const mediaUrl = '\\\\NAS\\Series\\Seinfeld\\Season 8\\Seinfeld.S08E20.The.Millennium.DVDRip.x264-HEiT.mkv';
 	    const panelProps = {
 	      tag: "li",
 	      bullet: `#${props.order}`,
 	      label: props.movie.title,
-	      meta: '',
+	      meta: state.startedTime && ListItem.timeStamp(state.startedTime) || '',
 	      background: props.movie.splash
 	    };
 	    return h(Panel, _extends({
@@ -1203,9 +1222,14 @@
 	      class: "playlist__item__content"
 	    }, h("img", {
 	      src: props.movie.cover
-	    }), h("h3", null, props.movie.title), h("p", null, props.movie.year, ", ", props.movie.duration, " min"), h("p", null, props.movie.genres.join(', ')), h("p", null, h("a", {
-	      href: "\\\\NAS\\Series\\Seinfeld\\Season%208\\Seinfeld.S08E19.The.Yada.Yada.DVDRip.x264-HEiT.mkv"
-	    }, "Play"))));
+	    }), h("h3", null, props.movie.title), h("p", null, props.movie.year, ", ", props.movie.duration, " min"), h("p", null, props.movie.genres.join(', ')), h("button", {
+	      type: "button",
+	      onClick: this.copyMediaUrl
+	    }, "\u25B6 Copy URL"), h("input", {
+	      type: "text",
+	      value: mediaUrl,
+	      ref: element => this.mediaUrlInput = element
+	    })));
 	  }
 
 	}
@@ -1247,7 +1271,6 @@
 	  }
 
 	  addPlaylistItem(movie) {
-	    console.log("adding", this.state.playlistItems);
 	    this.setState({
 	      playlistItems: this.state.playlistItems.concat({
 	        status: 0,

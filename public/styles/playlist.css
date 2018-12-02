@@ -10,3 +10,13 @@
 	text-align: center;
 	max-width: 30em;
 }
+
+.playlist__item__content > button {
+	margin-top: 1.5em;
+}
+
+.playlist__item__content > input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}

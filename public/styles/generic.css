@@ -36,3 +36,12 @@ p {
 img {
 	vertical-align: bottom;
 }
+
+button {
+	font: inherit;
+	color: inherit;
+	border: 2px solid currentColor;
+	border-radius: 3px;
+	padding: 0.5em 1em;
+	background: transparent;
+}
