@@ -1,11 +1,16 @@
+html, 
+body {
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	font-family: "PF Din Mono", courier new;
 	line-height: var(--line-height);
 	color: var(--c-foreground);
-	display: flex;
-	flex-direction: column;
 	font-size: 20px;
+	position: relative;
+	overflow: auto;
 }
 
 h2,
@@ -30,5 +35,4 @@ p {
 
 img {
 	vertical-align: bottom;
-	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }

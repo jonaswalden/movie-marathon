@@ -1,4 +1,8 @@
-.library > ul {
+.library {
+	overflow: auto;
+}
+
+.library ul {
 	--space: 4em;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -26,4 +30,8 @@
 
 .library__item p:last-child {
 	margin-bottom: 0;
+}
+
+.library.panel .panel__content {
+	justify-content: flex-start;
 }

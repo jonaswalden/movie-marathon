@@ -1,0 +1,94 @@
+.panel {
+	--tab-width: 3.2em;
+	display: flex;
+	border-left: 1px solid var(--c-border);
+	position: relative;
+	overflow: hidden;
+	min-width: var(--tab-width);
+	box-sizing: border-box;
+	background-size: cover;
+	background-position: center;
+}
+
+.panel[style]::before {
+	--blur: 10px;
+	--bleed: calc(var(--blur) * -2);
+	content: '';
+	display: block;
+	position: absolute;
+	left: var(--bleed);
+	right: var(--bleed);
+	top: var(--bleed);
+	bottom: var(--bleed);
+	background: inherit;
+	filter: blur(var(--blur)) brightness(88%);
+}
+
+.panel__container {
+	display: flex;
+}
+
+.panel__tab {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: var(--tab-width);
+	box-sizing: border-box;
+	padding: 1em 0;
+	align-items: center;
+	cursor: pointer;
+}
+
+.panel__tab > strong {
+	margin-bottom: 0.5em;
+	font-weight: 700;
+}
+
+.panel__tab > span {
+	writing-mode: vertical-lr;
+	transform: rotate(180deg);
+	text-align: right;
+}
+
+.panel__tab > span:first-of-type {
+	flex-grow: 1;
+}
+
+.panel__content {
+	flex-grow: 1;
+	position: relative;
+	padding-right: var(--tab-width);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-right: var(--tab-width);
+}
+
+.panel--open {
+	flex-grow: 1;
+	min-width: calc(100vw - (6 * var(--tab-width)));
+	background-color: rgba(0, 0, 0, .1);
+}
+
+.panel--open[style] {
+	text-shadow: var(--c-content-shadow);
+	color: var(--c-background);
+}
+
+.panel--open[style] img {
+	box-shadow: var(--c-image-shadow);
+}
+
+.panel--open[style] .panel__tab > span {
+	text-shadow: var(--c-content-shadow--reversed);
+}
+
+.panel[style]:not(.panel--open) {
+	background-image: none !important;
+}
+
+.panel:not(.panel--open)::before,
+.panel:not(.panel--open) .panel__content {
+	display: none;
+}

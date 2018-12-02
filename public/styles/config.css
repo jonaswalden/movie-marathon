@@ -4,6 +4,9 @@
 	--t-foreground-props: 8, 8, 8;
 	--c-foreground: rgb(var(--t-foreground-props));
 	--c-border: rgba(0, 0, 0, 0.2);
+	--c-content-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+	--c-image-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+	--c-content-shadow--reversed: -2px -2px 3px rgba(0, 0, 0, 0.4);
 
 	--t-line-height: 1.2;
 }

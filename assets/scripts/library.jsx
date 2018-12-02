@@ -1,9 +1,22 @@
-import {h, render, Component} from 'preact';
+import {h, Component} from 'preact';
 import movies from './movies.js';
+import Panel from './Panel.jsx';
+
+function LibraryItem (props) {
+	return <li class="library__item">
+		<img src={props.movie.cover} />
+		<div>
+			<h4 onClick={() => props.select(props.movie)}>{props.movie.title}</h4>
+			<p>{props.movie.year}, {props.movie.duration} min</p>
+			<p>{props.movie.genres.join(', ')}</p>
+		</div>
+	</li>;
+}
 
 export default class Library extends Component {
 	constructor (props) {
 		super(props);
+		this.selectItem = this.selectItem.bind(this);
 		this.state = {
 			movies: movies.slice()
 		};
@@ -11,29 +24,19 @@ export default class Library extends Component {
 
 	selectItem (selectedMovie) {
 		this.props.addPlaylistItem(selectedMovie);
-		this.setState({
-			movies: this.state.movies.filter(movie => movie.id !== selectedMovie.id)
-		});
 	}
 
 	render (props, state) {
-		return <section class="library">
-			<ul>
-				{state.movies.map(movie => 
-					<LibraryItem key={movie.id} select={this.selectItem.bind(this, movie)} movie={movie} />
-				)}
-			</ul>
-		</section>
-	}
-}
+		const usedMovieIds = props.playlistItems.map(item => item.movie.id);
 
-function LibraryItem (props) {
-	return <li class="library__item">
-		<img src={`https://m.media-amazon.com/images/M/${props.movie.cover}`} />
-		<div>
-			<h4 onClick={props.select}>{props.movie.title}</h4>
-			<p>{props.movie.year}, {props.movie.duration} min</p>
-			<p>{props.movie.genres.join(', ')}</p>
-		</div>
-	</li>;
+		return <Panel tag="section" id="library" class="library" bullet="+" label="More" default={true}>
+			<ul>
+				{state.movies
+					.filter(movie => !usedMovieIds.includes(movie.id))
+					.map(movie => {
+						return <LibraryItem key={movie.id} select={this.selectItem} movie={movie} />;
+					})}
+			</ul>
+		</Panel>;
+	}
 }
