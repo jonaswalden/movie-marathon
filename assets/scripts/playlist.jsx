@@ -12,29 +12,30 @@ class ListItem extends Component {
 		this.mediaUrlInput.focus();
 		this.mediaUrlInput.setSelectionRange(0, value.length);
 		document.execCommand('copy');
-
-		this.setState({
+		this.props.edit(this.props.movie.id, {
 			startedTime: new Date(),
 			status: 1
 		});
 	}
 
-	static timeStamp (date) {
+	static timeStamp (dateString) {
+		const date = new Date(dateString);
 		return [date.getHours(), date.getMinutes()]
 			.map(n => n.toString())
 			.map(s => s.padStart(2, '0'))
 			.join(':');
 	}
 
-	render (props, state) {
+	render (props) {
 		const mediaUrl = '\\\\NAS\\Series\\Seinfeld\\Season 8\\Seinfeld.S08E20.The.Millennium.DVDRip.x264-HEiT.mkv';
 		const panelProps = {
 			tag: "li",
 			bullet: `#${props.order}`,
 			label: props.movie.title,
-			meta: state.startedTime && ListItem.timeStamp(state.startedTime) || '',
+			meta: props.startedTime && ListItem.timeStamp(props.startedTime) || '',
 			background: props.movie.splash, 
 		};
+
 		return <Panel class="playlist__item" {...panelProps}>
 			<div class="playlist__item__content">
 				<img src={props.movie.cover} />
@@ -57,7 +58,7 @@ export default class Playlist extends Component {
 		return <section class="playlist">
 			<ol class="panel__container">
 				{props.items.map((item, index) => {
-					return <ListItem key={item.id} order={index + 1} {...item} />
+					return <ListItem key={item.movie.id} order={index + 1} edit={props.editItem} {...item} />
 				})}
 			</ol>
 		</section>;

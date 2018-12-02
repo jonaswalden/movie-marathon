@@ -1,6 +1,16 @@
 (function () {
 	'use strict';
 
+	function getItem(key) {
+	  const data = localStorage.getItem(key);
+	  if (!data) return data;
+	  return JSON.parse(data);
+	}
+	function setItem(key, data) {
+	  const value = JSON.stringify(data);
+	  localStorage.setItem(key, value);
+	}
+
 	var VNode = function VNode() {};
 
 	var options = {};
@@ -1194,23 +1204,24 @@
 	    this.mediaUrlInput.focus();
 	    this.mediaUrlInput.setSelectionRange(0, value.length);
 	    document.execCommand('copy');
-	    this.setState({
+	    this.props.edit(this.props.movie.id, {
 	      startedTime: new Date(),
 	      status: 1
 	    });
 	  }
 
-	  static timeStamp(date) {
+	  static timeStamp(dateString) {
+	    const date = new Date(dateString);
 	    return [date.getHours(), date.getMinutes()].map(n => n.toString()).map(s => s.padStart(2, '0')).join(':');
 	  }
 
-	  render(props, state) {
+	  render(props) {
 	    const mediaUrl = '\\\\NAS\\Series\\Seinfeld\\Season 8\\Seinfeld.S08E20.The.Millennium.DVDRip.x264-HEiT.mkv';
 	    const panelProps = {
 	      tag: "li",
 	      bullet: `#${props.order}`,
 	      label: props.movie.title,
-	      meta: state.startedTime && ListItem.timeStamp(state.startedTime) || '',
+	      meta: props.startedTime && ListItem.timeStamp(props.startedTime) || '',
 	      background: props.movie.splash
 	    };
 	    return h(Panel, _extends({
@@ -1243,27 +1254,22 @@
 	      class: "panel__container"
 	    }, props.items.map((item, index) => {
 	      return h(ListItem, _extends({
-	        key: item.id,
-	        order: index + 1
+	        key: item.movie.id,
+	        order: index + 1,
+	        edit: props.editItem
 	      }, item));
 	    })));
 	  }
 
 	}
 
-	const playlistItems = movies.slice(0, 3).map((movie, index) => {
-	  return {
-	    status: index === 1 ? 1 : 2,
-	    movie
-	  };
-	});
-
 	class Main extends Component {
 	  constructor() {
 	    super();
 	    this.addPlaylistItem = this.addPlaylistItem.bind(this);
+	    this.editPlaylistItem = this.editPlaylistItem.bind(this);
 	    this.state = {
-	      playlistItems
+	      playlistItems: getItem('playlistItems') || []
 	    };
 	  }
 
@@ -1276,6 +1282,22 @@
 	    });
 	  }
 
+	  editPlaylistItem(movieId, changes) {
+	    const itemIndex = this.state.playlistItems.findIndex(item => item.movie.id === movieId);
+	    if (itemIndex < 0) return console.warn('no such item', movieId);
+	    this.setState(state => {
+	      Object.assign(state.playlistItems[itemIndex], changes);
+	      return {
+	        playlistItems: state.playlistItems
+	      };
+	    });
+	  }
+
+	  componentDidUpdate() {
+	    console.log('did update');
+	    setItem('playlistItems', this.state.playlistItems);
+	  }
+
 	  render(props, state) {
 	    console.log('render', state.playlistItems);
 	    return h("body", {
@@ -1285,7 +1307,8 @@
 	      bullet: "\u2630",
 	      label: "Cosathon #1 2018"
 	    }), h(Playlist, {
-	      items: state.playlistItems
+	      items: state.playlistItems,
+	      editItem: this.editPlaylistItem
 	    }), h(Library, {
 	      playlistItems: state.playlistItems,
 	      addPlaylistItem: this.addPlaylistItem
