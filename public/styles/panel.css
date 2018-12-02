@@ -6,21 +6,19 @@
 	overflow: hidden;
 	min-width: var(--tab-width);
 	box-sizing: border-box;
-	background-size: cover;
-	background-position: center;
 }
 
-.panel[style]::before {
+.panel__background {
 	--blur: 10px;
-	--bleed: calc(var(--blur) * -2);
-	content: '';
+	--bleed: calc(var(--blur) * 2);
 	display: block;
 	position: absolute;
-	left: var(--bleed);
-	right: var(--bleed);
-	top: var(--bleed);
-	bottom: var(--bleed);
-	background: inherit;
+	left: calc(-1 * var(--bleed));
+	top: calc(-1 * var(--bleed));
+	width: calc(100% + (2 * var(--bleed)));
+	height: calc(100% + (2 * var(--bleed)));
+	object-fit: cover;
+	object-position: center;
 	filter: blur(var(--blur)) brightness(88%);
 }
 
@@ -71,29 +69,26 @@
 	background-color: rgba(0, 0, 0, .1);
 }
 
-.panel--open[style] {
+.panel--open .panel__background ~ .panel__tab,
+.panel--open .panel__background ~ .panel__content {
 	text-shadow: var(--c-content-shadow);
 	color: var(--c-background);
 }
 
-.panel--open[style] img {
+.panel--open .panel__background ~ .panel__tab > span {
+	text-shadow: var(--c-content-shadow--reversed);
+}
+
+.panel--open .panel__background ~ .panel__content img {
 	box-shadow: var(--c-image-shadow);
 }
 
-.panel--open[style] button {
+.panel--open .panel__background ~ .panel__content button {
 	box-shadow: var(--c-image-shadow), inset var(--c-image-shadow);
 	text-shadow: inherit;
 }
 
-.panel--open[style] .panel__tab > span {
-	text-shadow: var(--c-content-shadow--reversed);
-}
-
-.panel[style]:not(.panel--open) {
-	background-image: none !important;
-}
-
-.panel:not(.panel--open)::before,
+.panel:not(.panel--open) .panel__background,
 .panel:not(.panel--open) .panel__content {
 	display: none;
 }

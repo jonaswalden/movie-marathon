@@ -25,11 +25,10 @@ export default class Panel extends Component {
 			attrs.class += ' panel--open';
 		}
 
-		if (props.background) {
-			attrs.style = {backgroundImage: `url(${props.background})`};
-		}
-
 		return <props.tag {...attrs} ref={element => this.element = element}>
+			{'background' in props && 
+				<img class="panel__background" src={props.background} />
+			}
 			<div class="panel__tab" onClick={this.open}>
 				<strong>{props.bullet}</strong>
 				<span>{props.label}</span>

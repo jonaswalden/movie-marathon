@@ -1123,14 +1123,11 @@
 	      attrs.class += ' panel--open';
 	    }
 
-	    if (props.background) {
-	      attrs.style = {
-	        backgroundImage: `url(${props.background})`
-	      };
-	    }
-
 	    return h(props.tag, _extends({}, attrs, {
 	      ref: element => this.element = element
+	    }), 'background' in props && h("img", {
+	      class: "panel__background",
+	      src: props.background
 	    }), h("div", {
 	      class: "panel__tab",
 	      onClick: this.open
