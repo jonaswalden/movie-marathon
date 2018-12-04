@@ -1194,7 +1194,7 @@
 	    const randomizeButton = h("button", {
 	      type: "button",
 	      onClick: this.randomize
-	    }, "???");
+	    }, "\xA0???\xA0");
 	    if (state.movie) return h(LibraryItem, {
 	      select: this.selectItem,
 	      movie: state.movie,

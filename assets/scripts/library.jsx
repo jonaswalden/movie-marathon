@@ -45,7 +45,7 @@ class RandomLibraryItem extends Component {
 	render (props, state) {
 		if (!props.hide) return;
 
-		const randomizeButton = <button type="button" onClick={this.randomize}>???</button>;
+		const randomizeButton = <button type="button" onClick={this.randomize}>&nbsp;???&nbsp;</button>;
 		if (state.movie) return <LibraryItem select={this.selectItem} movie={state.movie} externalAction={randomizeButton} />;
 
 		return <li class="library__item">
