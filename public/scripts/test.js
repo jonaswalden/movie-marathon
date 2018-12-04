@@ -1151,11 +1151,64 @@
 	function LibraryItem(props) {
 	  return h("li", {
 	    class: "library__item"
+	  }, h("div", {
+	    class: "library__item__cover"
 	  }, h("img", {
 	    src: props.movie.cover
-	  }), h("div", null, h("h4", {
+	  })), h("div", {
+	    class: "library__item__content"
+	  }, h("h4", null, props.movie.title), h("p", null, props.movie.year, ", ", props.movie.duration + " min"), h("p", null, (props.movie.genres || []).join(', ')), h("div", {
+	    class: "library__item__actions"
+	  }, props.externalAction, h("button", {
+	    type: "button",
 	    onClick: () => props.select(props.movie)
-	  }, props.movie.title), h("p", null, props.movie.year, ", ", props.movie.duration, " min"), h("p", null, props.movie.genres.join(', '))));
+	  }, "Add +"))));
+	}
+
+	class RandomLibraryItem extends Component {
+	  constructor(props) {
+	    super(props);
+	    this.randomize = this.randomize.bind(this);
+	    this.selectItem = this.selectItem.bind(this);
+	    this.state = {
+	      movie: null
+	    };
+	  }
+
+	  randomize() {
+	    const index = Math.floor(Math.random() * this.props.options.length);
+	    this.setState({
+	      movie: this.props.options[index]
+	    });
+	  }
+
+	  selectItem(...args) {
+	    this.setState({
+	      movie: null
+	    });
+	    this.props.selectItem(...args);
+	  }
+
+	  render(props, state) {
+	    if (!props.hide) return;
+	    const randomizeButton = h("button", {
+	      type: "button",
+	      onClick: this.randomize
+	    }, "???");
+	    if (state.movie) return h(LibraryItem, {
+	      select: this.selectItem,
+	      movie: state.movie,
+	      externalAction: randomizeButton
+	    });
+	    return h("li", {
+	      class: "library__item"
+	    }, h("div", {
+	      class: "library__item__cover"
+	    }), h("div", {
+	      class: "library__item__content"
+	    }, h("h4", null, "Randomize"), randomizeButton));
+	  }
+
 	}
 
 	class Library extends Component {
@@ -1166,24 +1219,35 @@
 	    this.updateFilter = this.updateFilter.bind(this);
 	    this.state = {
 	      movies: movies.slice(),
+	      titleFilter: '',
+	      titleFilterPattern: /./i,
 	      sortProperty: 'title',
-	      sortReversed: false
+	      sortOrder: true
 	    };
 	  }
 
 	  selectItem(selectedMovie) {
 	    this.props.addPlaylistItem(selectedMovie);
+
+	    if (this.state.titleFilter) {
+	      this.controls.titleFilter.value = '';
+	      this.updateFilter();
+	    }
 	  }
 
 	  updateFilter() {
+	    const titleFilter = this.controls.titleFilter.value;
 	    this.setState({
+	      titleFilter: titleFilter,
+	      titleFilterPattern: new RegExp(titleFilter || '.', 'i'),
 	      sortProperty: this.controls.sortProperty.value,
-	      sortReversed: this.controls.sortReversed.checked
+	      sortOrder: !!+this.controls.sortOrder.value
 	    });
 	  }
 
 	  render(props, state) {
 	    const usedMovieIds = props.playlistItems.map(item => item.movie.id);
+	    const unusedMovies = state.movies.filter(movie => !usedMovieIds.includes(movie.id));
 	    return h(Panel, {
 	      tag: "section",
 	      id: "library",
@@ -1191,7 +1255,11 @@
 	      bullet: "+",
 	      label: "More",
 	      default: true
-	    }, h("form", null, h("label", null, "Order by"), h("select", {
+	    }, h("form", null, h("label", null, "Search"), h("input", {
+	      type: "search",
+	      onInput: this.updateFilter,
+	      ref: element => this.controls.titleFilter = element
+	    }), h("label", null, "Sort by"), h("select", {
 	      onChange: this.updateFilter,
 	      ref: element => this.controls.sortProperty = element
 	    }, h("option", {
@@ -1200,13 +1268,20 @@
 	      value: "year"
 	    }, "Year"), h("option", {
 	      value: "duration"
-	    }, "Duration")), h("label", null, "Reverse"), h("input", {
-	      type: "checkbox",
+	    }, "Duration")), h("label", null, "Order"), h("select", {
 	      onChange: this.updateFilter,
-	      ref: element => this.controls.sortReversed = element
-	    })), h("ul", null, state.movies.filter(movie => !usedMovieIds.includes(movie.id)).sort((a, b) => {
+	      ref: element => this.controls.sortOrder = element
+	    }, h("option", {
+	      value: "1"
+	    }, "A - Z"), h("option", {
+	      value: "0"
+	    }, "Z - A"))), h("ul", null, h(RandomLibraryItem, {
+	      hide: !state.titleFilter,
+	      selectItem: this.selectItem,
+	      options: unusedMovies
+	    }), unusedMovies.filter(movie => state.titleFilterPattern.test(movie.title)).sort((a, b) => {
 	      const order = a[state.sortProperty] > b[state.sortProperty];
-	      if (state.sortReversed) return order ? -1 : 1;
+	      if (!state.sortOrder) return order ? -1 : 1;
 	      return order ? 1 : -1;
 	    }).map(movie => {
 	      return h(LibraryItem, {
@@ -1226,11 +1301,7 @@
 	  }
 
 	  copyMediaUrl() {
-	    const {
-	      value
-	    } = this.mediaUrlInput;
-	    this.mediaUrlInput.focus();
-	    this.mediaUrlInput.setSelectionRange(0, value.length);
+	    this.mediaUrlInput.select();
 	    document.execCommand('copy');
 	    this.props.edit(this.props.movie.id, {
 	      startedTime: new Date(),

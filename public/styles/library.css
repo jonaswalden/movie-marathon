@@ -1,63 +1,55 @@
 .library {
-	--space: 4em;
-	overflow: auto;
-	position: relative;
+	--space: 2em;
+}
+
+.library .panel__content {
+	display: block;
+	padding: 0 var(--space);
+	overflow-y: scroll;
 }
 
 .library form {
 	position: sticky;
 	align-self: stretch;
 	top: 0;
-	padding: 1em var(--space) 0.5em;
-	margin-bottom: 1.5em;
+	padding: 1em;
+	margin-top: var(--space);
 	background: var(--c-background--dark);
 	text-align: center;
 }
 
-.library form::after {
-	content: '';
-	display: block;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 100%;
-	background: linear-gradient(
-			rgba(var(--c-background--dark-props), 1), 
-			rgba(var(--c-background--dark-props), 0)
-		);
-	height: 1.5em;
-}
-
 .library ul {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	justify-content: center;
+	grid-template-columns: repeat(3, 22em);
+	grid-auto-rows: 33vh;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 var(--space);
 	column-gap: var(--space);
 	row-gap: var(--space);
 }
 
 .library__item {
-	display: flex;
-	align-items: flex-end;
-	justify-content: center;
-	min-height: 33vh;
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+	column-gap: 1em;
+	align-items: end;
 }
 
-.library__item > img {
-	margin-right: 1em;
-	width: 240px;
+.library__item__cover:empty {
+	padding-bottom: 148%;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
-.library__item > div {
-	width: 240px;
+.library__item__cover > img {
+	width: 100%;
 }
 
-.library__item p:last-child {
-	margin-bottom: 0;
+
+.library__item__actions {
+	margin-top: 1em;
 }
 
-.library.panel .panel__content {
-	justify-content: flex-start;
-	padding: var(--space) calc(var(--space) * 2);
+.library__item__actions > button + button {
+	margin-left: 0.5em;
 }
