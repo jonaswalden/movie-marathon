@@ -11,6 +11,11 @@
 	max-width: 30em;
 }
 
+.playlist__item__content > img {
+	height: 24em;
+	max-height: 45vh;
+}
+
 .playlist__item__content > button {
 	margin-top: 1.5em;
 }
