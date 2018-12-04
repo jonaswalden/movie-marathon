@@ -17,6 +17,7 @@
 	top: calc(-1 * var(--bleed));
 	width: calc(100% + (2 * var(--bleed)));
 	height: calc(100% + (2 * var(--bleed)));
+	max-width: none;
 	object-fit: cover;
 	object-position: center;
 	filter: blur(var(--blur)) brightness(88%);

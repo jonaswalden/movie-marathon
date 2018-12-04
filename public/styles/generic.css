@@ -35,6 +35,7 @@ p {
 
 img {
 	vertical-align: bottom;
+	max-width: 100%;
 }
 
 label {
@@ -50,7 +51,8 @@ label:first-child {
 }
 
 button,
-select {
+select,
+input {
 	font: inherit;
 	color: inherit;
 }
@@ -60,4 +62,18 @@ button {
 	border-radius: 3px;
 	padding: 0.5em 1em;
 	background: transparent;
+}
+
+input[type=search],
+select {
+	background: transparent;
+	padding: 0.25em 0.25em 0.25em 0;
+	border: solid currentColor;
+	border-width: 0 0 2px;
+}
+
+input[type=search]:focus,
+select:focus {
+	border-color: blue;
+	outline: none;
 }
