@@ -1,6 +1,10 @@
 header {
 	background: var(--c-foreground);
 	color: var(--c-background);
-	position: sticky !important;
 	left: 0;
+	z-index: 1;
+}
+
+header.panel {
+	position: sticky !important;
 }
