@@ -8,9 +8,7 @@ class ListItem extends Component {
 	}
 
 	copyMediaUrl () {
-		const {value} = this.mediaUrlInput;
-		this.mediaUrlInput.focus();
-		this.mediaUrlInput.setSelectionRange(0, value.length);
+		this.mediaUrlInput.select();
 		document.execCommand('copy');
 		this.props.edit(this.props.movie.id, {
 			startedTime: new Date(),
