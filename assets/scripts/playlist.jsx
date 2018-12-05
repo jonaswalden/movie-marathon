@@ -5,6 +5,7 @@ class ListItem extends Component {
 	constructor (props) {
 		super(props);
 		this.copyMediaUrl = this.copyMediaUrl.bind(this);		
+		this.remove = this.remove.bind(this);		
 	}
 
 	copyMediaUrl () {
@@ -14,6 +15,10 @@ class ListItem extends Component {
 			startedTime: new Date(),
 			status: 1
 		});
+	}
+
+	remove () {
+		this.props.remove(this.props.movie.id)
 	}
 
 	static timeStamp (dateString) {
@@ -43,6 +48,7 @@ class ListItem extends Component {
 				<button type="button" onClick={this.copyMediaUrl}>▶ Copy URL</button>
 				<input type="text" value={mediaUrl} ref={element => this.mediaUrlInput = element} />
 			</div>
+			{!props.status && <div class="panel__tab playlist__item__remove" onClick={this.remove}><strong>&times;</strong></div>}
 		</Panel>;
 	}
 }
@@ -56,7 +62,7 @@ export default class Playlist extends Component {
 		return <section class="playlist">
 			<ol class="panel__container">
 				{props.items.map((item, index) => {
-					return <ListItem key={item.movie.id} order={index + 1} edit={props.editItem} {...item} />
+					return <ListItem key={item.movie.id} order={index + 1} remove={props.removeItem} edit={props.editItem} {...item} />
 				})}
 			</ol>
 		</section>;

@@ -1298,6 +1298,7 @@
 	  constructor(props) {
 	    super(props);
 	    this.copyMediaUrl = this.copyMediaUrl.bind(this);
+	    this.remove = this.remove.bind(this);
 	  }
 
 	  copyMediaUrl() {
@@ -1307,6 +1308,10 @@
 	      startedTime: new Date(),
 	      status: 1
 	    });
+	  }
+
+	  remove() {
+	    this.props.remove(this.props.movie.id);
 	  }
 
 	  static timeStamp(dateString) {
@@ -1336,7 +1341,10 @@
 	      type: "text",
 	      value: mediaUrl,
 	      ref: element => this.mediaUrlInput = element
-	    })));
+	    })), !props.status && h("div", {
+	      class: "panel__tab playlist__item__remove",
+	      onClick: this.remove
+	    }, h("strong", null, "\xD7")));
 	  }
 
 	}
@@ -1355,6 +1363,7 @@
 	      return h(ListItem, _extends({
 	        key: item.movie.id,
 	        order: index + 1,
+	        remove: props.removeItem,
 	        edit: props.editItem
 	      }, item));
 	    })));
@@ -1366,6 +1375,7 @@
 	  constructor() {
 	    super();
 	    this.addPlaylistItem = this.addPlaylistItem.bind(this);
+	    this.removePlaylistItem = this.removePlaylistItem.bind(this);
 	    this.editPlaylistItem = this.editPlaylistItem.bind(this);
 	    this.state = {
 	      playlistItems: getItem('playlistItems') || []
@@ -1378,6 +1388,14 @@
 	        status: 0,
 	        movie: movie
 	      })
+	    });
+	  }
+
+	  removePlaylistItem(movieId) {
+	    const itemIndex = this.state.playlistItems.findIndex(item => item.movie.id === movieId);
+	    if (itemIndex < 0) return console.warn('no such item', movieId);
+	    this.setState({
+	      playlistItems: [].concat(this.state.playlistItems.slice(0, itemIndex), this.state.playlistItems.slice(itemIndex + 1))
 	    });
 	  }
 
@@ -1405,6 +1423,7 @@
 	      label: "Cosathon #1 2018"
 	    }), h(Playlist, {
 	      items: state.playlistItems,
+	      removeItem: this.removePlaylistItem,
 	      editItem: this.editPlaylistItem
 	    }), h(Library, {
 	      playlistItems: state.playlistItems,
