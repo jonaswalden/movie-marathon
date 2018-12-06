@@ -1,7 +1,7 @@
 import * as storage from './storage.js';
 import {h, render, Component} from 'preact';
 import Library from './library.jsx';
-import movies from './movies.js';
+import movies from '../data/movies.js';
 import Panel from './Panel.jsx';
 import Playlist from './playlist.jsx';
 

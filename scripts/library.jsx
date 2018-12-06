@@ -1,5 +1,5 @@
 import {h, Component} from 'preact';
-import movies from './movies.js';
+import movies from '../data/movies.js';
 import Panel from './Panel.jsx';
 
 function LibraryItem (props) {
