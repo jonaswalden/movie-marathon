@@ -114,7 +114,7 @@ export default [
 		url: 'http://www.imdb.com/title/tt0233142/',
 		cover: '/images/MV5BMTExMDA0NDAyOTReQTJeQWpwZ15BbWU2MDM4ODg3OQ@@._V1_SX640_SY720_.jpg',
 		splash: '/images/MV5BMTExMDA0NDAyOTReQTJeQWpwZ15BbWU2MDM4ODg3OQ@@._V1_SX640_SY720_-splash.jpg',
-		media: '\\\\NAS\\Cos-a-thon\\3000.Miles.To.Graceland.2001.DVDR.PAL-TBVCD\\foa.3000.miles.to.graceland.img'
+		media: '\\\\NAS\\Cos-a-thon\\3000.Miles.to.Graceland.1080i.HDTV.AC3\\3000.Miles.to.Graceland.1080i.HDTV.AC3.mkv'
 	},
 	{
 		id: 10,
