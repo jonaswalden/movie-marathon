@@ -30,7 +30,6 @@ class ListItem extends Component {
 	}
 
 	render (props) {
-		const mediaUrl = '\\\\NAS\\Series\\Seinfeld\\Season 8\\Seinfeld.S08E20.The.Millennium.DVDRip.x264-HEiT.mkv';
 		const panelProps = {
 			tag: "li",
 			bullet: `#${props.order}`,
@@ -46,7 +45,7 @@ class ListItem extends Component {
 				<p>{props.movie.year}, {props.movie.duration} min</p>
 				<p>{props.movie.genres.join(', ')}</p>
 				<button type="button" onClick={this.copyMediaUrl}>▶ Copy URL</button>
-				<input type="text" value={mediaUrl} ref={element => this.mediaUrlInput = element} />
+				<input type="text" value={props.movie.media} ref={element => this.mediaUrlInput = element} />
 			</div>
 			{!props.status && <div class="panel__tab playlist__item__remove" onClick={this.remove}><strong>&times;</strong></div>}
 		</Panel>;
