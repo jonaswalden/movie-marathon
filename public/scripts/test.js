@@ -718,18 +718,19 @@
 	  id: 2,
 	  title: 'JFK',
 	  year: 1991,
-	  duration: 189,
+	  duration: 205,
 	  genres: ['Drama', 'History', 'Thriller'],
 	  rating: 8,
 	  description: '\nA New Orleans DA discovers there\'s more to the Kennedy assassination than the official story.    ',
 	  url: 'http://www.imdb.com/title/tt0102138/',
 	  cover: '/images/MV5BMTY4ODI3Njg5N15BMl5BanBnXkFtZTgwODgyMDUxMDE@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTY4ODI3Njg5N15BMl5BanBnXkFtZTgwODgyMDUxMDE@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMTY4ODI3Njg5N15BMl5BanBnXkFtZTgwODgyMDUxMDE@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\JFK.DirCut.1991.1080p.BluRay.DTS.x264-ESiR\\JFK.DirCut.1991.1080p.BluRay.DTS.x264-ESiR.mkv'
 	}, {
 	  id: 3,
 	  title: 'Robin Hood: Prince of Thieves',
 	  year: 1991,
-	  duration: 143,
+	  duration: 155,
 	  genres: ['Action', 'Adventure', 'Drama'],
 	  rating: 6.9,
 	  description: '\nWhen Robin and his Moorish companion come to England and the tyranny of the Sheriff of Nottingham, he decides to fight back as an outlaw.    ',
@@ -768,7 +769,8 @@
 	  description: '\nA kidnapped boy strikes up a friendship with his captor: an escaped convict on the run from the law, headed by an honorable U.S. Marshal.    ',
 	  url: 'http://www.imdb.com/title/tt0107808/',
 	  cover: '/images/MV5BMjAxMDExODExOV5BMl5BanBnXkFtZTcwMTI3MTcxMQ@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMjAxMDExODExOV5BMl5BanBnXkFtZTcwMTI3MTcxMQ@@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMjAxMDExODExOV5BMl5BanBnXkFtZTcwMTI3MTcxMQ@@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\A.Perfect.World.1993.720p.BluRay.X264-BLOW\\a.perfect.world.1993.720p.bluray.x264-blow.rar'
 	}, {
 	  id: 7,
 	  title: 'Waterworld',
@@ -834,7 +836,8 @@
 	  description: '\nA washed up pitcher flashes through his career.    ',
 	  url: 'http://www.imdb.com/title/tt0126916/',
 	  cover: '/images/MV5BMTcyMDk1ODM5N15BMl5BanBnXkFtZTYwNjYzNzQ5._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTcyMDk1ODM5N15BMl5BanBnXkFtZTYwNjYzNzQ5._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMTcyMDk1ODM5N15BMl5BanBnXkFtZTYwNjYzNzQ5._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\For.Love.Of.The.Game.1999.DVDRip.XviD-SHK'
 	}, {
 	  id: 13,
 	  title: 'Fandango',
@@ -845,7 +848,8 @@
 	  description: '\nFive college buddies from the University of Texas circa 1971 embark on a final road trip odyssey across the Mexican border before facing up to uncertain futures, in Vietnam and otherwise.',
 	  url: 'http://www.imdb.com/title/tt0089126/',
 	  cover: '/images/MV5BMTUwNTA1MzUxOV5BMl5BanBnXkFtZTcwNDY0NDcyMQ@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTUwNTA1MzUxOV5BMl5BanBnXkFtZTcwNDY0NDcyMQ@@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMTUwNTA1MzUxOV5BMl5BanBnXkFtZTcwNDY0NDcyMQ@@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Fandango.1985.DVDRip.XviD-SHK\\fandango-shk.avi'
 	}, {
 	  id: 14,
 	  title: 'Field of Dreams',
@@ -856,7 +860,8 @@
 	  description: '\nAn Iowa corn farmer, hearing voices, interprets them as a command to build a baseball diamond in his fields; he does, and the Chicago Black Sox come.',
 	  url: 'http://www.imdb.com/title/tt0097351/',
 	  cover: '/images/MV5BMTkxNDc3MzMwOF5BMl5BanBnXkFtZTcwMzY1Mjk3OA@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTkxNDc3MzMwOF5BMl5BanBnXkFtZTcwMzY1Mjk3OA@@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMTkxNDc3MzMwOF5BMl5BanBnXkFtZTcwMzY1Mjk3OA@@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Field.Of.Dreams.1989.720p.BRRiP.XViD.AC3-FLAWL3SS\\Field.Of.Dreams.1989.720p.BRRiP.XViD.AC3-FLAWL3SS.avi'
 	}, {
 	  id: 15,
 	  title: 'Message in a Bottle',
@@ -933,7 +938,8 @@
 	  description: '\nSports physician Marcus persuades his unstable brother David to come with him and train for a bicycle race across the Rocky Mountains. He doesn\'t tell him that he has a brain aneurysm which...\n',
 	  url: 'http://www.imdb.com/title/tt0088707/',
 	  cover: '/images/MV5BMTU4MDU2OTk0MF5BMl5BanBnXkFtZTcwODQ0NzgxMQ@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTU4MDU2OTk0MF5BMl5BanBnXkFtZTcwODQ0NzgxMQ@@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMTU4MDU2OTk0MF5BMl5BanBnXkFtZTcwODQ0NzgxMQ@@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\American.Flyers.1985.DVDRip.XviD-SHK'
 	}, {
 	  id: 22,
 	  title: 'Dragonfly',
@@ -944,7 +950,8 @@
 	  description: '\nA grieving doctor is being contacted by his late wife through his patients near death experiences.',
 	  url: 'http://www.imdb.com/title/tt0259288/',
 	  cover: '/images/MV5BMTQ0OTIxODg3NV5BMl5BanBnXkFtZTcwMzAwMDcxMQ@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTQ0OTIxODg3NV5BMl5BanBnXkFtZTcwMzAwMDcxMQ@@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMTQ0OTIxODg3NV5BMl5BanBnXkFtZTcwMzAwMDcxMQ@@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Dragonfly.DVDRip.DivX-ViTE\\vite-divx-df.rar'
 	}, {
 	  id: 23,
 	  title: 'Open Range',
@@ -1021,7 +1028,7 @@
 	  description: '\nWhen her husband unexpectedly disappears, a sharp-witted suburban wife and her daughters juggle their mom\'s romantic dilemmas and family dynamics.',
 	  url: 'http://www.imdb.com/title/tt0365885/',
 	  cover: '/images/MV5BMTIyODM2MzUzM15BMl5BanBnXkFtZTcwMDQ4MzgyMQ@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTIyODM2MzUzM15BMl5BanBnXkFtZTcwMDQ4MzgyMQ@@._V1_SX640_SY720-splash_.jpg'
+	  splash: '/images/MV5BMTIyODM2MzUzM15BMl5BanBnXkFtZTcwMDQ4MzgyMQ@@._V1_SX640_SY720_-splash.jpg'
 	}, {
 	  id: 30,
 	  title: 'Draft Day',
@@ -1032,18 +1039,20 @@
 	  description: '\nAt the NFL Draft, general manager Sonny Weaver has the opportunity to rebuild his team when he trades for the number one pick. He must decide what he\'s willing to sacrifice on a life-changing day for a few hundred young men with NFL dreams.',
 	  url: 'http://www.imdb.com/title/tt2223990/',
 	  cover: '/images/MV5BMjAyOTMxMjA3Nl5BMl5BanBnXkFtZTgwMTMwNjQ4MDE@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMjAyOTMxMjA3Nl5BMl5BanBnXkFtZTgwMTMwNjQ4MDE@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMjAyOTMxMjA3Nl5BMl5BanBnXkFtZTgwMTMwNjQ4MDE@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Draft.Day.2014.1080p.BluRay.X264-AMIABLE\\draft.day.2014.1080p.bluray.x264-amiable.rar'
 	}, {
 	  id: 31,
 	  title: '3 Days to Kill',
 	  year: 2014,
-	  duration: 117,
+	  duration: 122,
 	  genres: ['Action', 'Drama', 'Thriller'],
 	  rating: 6,
 	  description: '\nA dying CIA agent trying to reconnect with his estranged daughter is offered an experimental drug that could save his life in exchange for one last assignment.',
 	  url: 'http://www.imdb.com/title/tt2172934/',
 	  cover: '/images/MV5BMzM0MjE0Nzg1N15BMl5BanBnXkFtZTgwODA4ODE4MDE@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMzM0MjE0Nzg1N15BMl5BanBnXkFtZTgwODA4ODE4MDE@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMzM0MjE0Nzg1N15BMl5BanBnXkFtZTgwODA4ODE4MDE@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\3.Days.to.Kill.2014.EXTENDED.1080p.BluRay.x264-SPARKS\\3.days.to.kill.2014.extended.1080p.bluray.x264-sparks.rar'
 	}, {
 	  id: 32,
 	  title: 'Hatfields & McCoys Part 1',
@@ -1054,7 +1063,8 @@
 	  description: '\nDramatization of the bitter blood feud between the two families on the West Virginia/Kentucky border in the years after the Civil War.',
 	  url: 'http://www.imdb.com/title/tt1985443/',
 	  cover: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_-1-splash.jpg'
+	  splash: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_-1-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Hatfields.and.McCoys.2012.Part.1.REPACK.720p.HDTV.x264-2HD\\hatfields.and.mccoys.2012.part.1.repack.720p.hdtv.x264-2hd.rar'
 	}, {
 	  id: 33,
 	  title: 'Hatfields & McCoys Part 2',
@@ -1065,7 +1075,8 @@
 	  description: '\nDramatization of the bitter blood feud between the two families on the West Virginia/Kentucky border in the years after the Civil War.',
 	  url: 'http://www.imdb.com/title/tt1985443/',
 	  cover: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_-2-splash.jpg'
+	  splash: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_-2-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Hatfields.and.McCoys.2012.Part.2.720p.HDTV.x264-2HD\\hatfields.and.mccoys.2012.part.2.720p.hdtv.x264-2hd.rar'
 	}, {
 	  id: 34,
 	  title: 'Hatfields & McCoys Part 3',
@@ -1076,18 +1087,54 @@
 	  description: '\nDramatization of the bitter blood feud between the two families on the West Virginia/Kentucky border in the years after the Civil War.',
 	  url: 'http://www.imdb.com/title/tt1985443/',
 	  cover: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_-3-splash.jpg'
+	  splash: '/images/MV5BNDIyNDUzNzQ0Ml5BMl5BanBnXkFtZTcwNzc5Nzg3Nw@@._V1_SX640_SY720_-3-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Hatfields.and.McCoys.2012.Part.3.720p.HDTV.x264-2HD\\hatfields.and.mccoys.2012.part.3.720p.hdtv.x264-2hd.rar'
 	}, {
 	  id: 35,
 	  title: 'Dances with Wolves',
 	  year: 1990,
-	  duration: 181,
+	  duration: 236,
 	  genres: ['Adventure', 'Drama', 'Romance'],
 	  rating: 8,
 	  description: '\nLt. John Dunbar, exiled to a remote western Civil War outpost, befriends wolves and Indians, making him an intolerable aberration in the military.    ',
 	  url: 'http://www.imdb.com/title/tt0099348/',
 	  cover: '/images/MV5BMTY3OTI5NDczN15BMl5BanBnXkFtZTcwNDA0NDY3Mw@@._V1_SX640_SY720_.jpg',
-	  splash: '/images/MV5BMTY3OTI5NDczN15BMl5BanBnXkFtZTcwNDA0NDY3Mw@@._V1_SX640_SY720_-splash.jpg'
+	  splash: '/images/MV5BMTY3OTI5NDczN15BMl5BanBnXkFtZTcwNDA0NDY3Mw@@._V1_SX640_SY720_-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Dances.with.Wolves.1990.1080p.BluRay.DTS.x264-DON\\137392.part01.rar'
+	}, {
+	  id: 36,
+	  title: 'Criminal',
+	  year: 2016,
+	  duration: 113,
+	  genres: ['Action', 'Crime', 'Drama'],
+	  cover: '/images/MV5BMTg0ODc4Mzk2OF5BMl5BanBnXkFtZTgwNDk2MDkyODE@._V1_SX300.jpg',
+	  splash: '/images/MV5BMTg0ODc4Mzk2OF5BMl5BanBnXkFtZTgwNDk2MDkyODE@._V1_SX300-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Criminal.2016.720p.BluRay.x264-GECKOS\\criminal.2016.720p.bluray.x264-geckos.rar'
+	}, {
+	  id: 37,
+	  title: 'McFarland, USA',
+	  year: 2015,
+	  duration: 129,
+	  genres: ['Biography', 'Drama', 'Sport'],
+	  cover: '/images/MV5BMjMwNjY2Mjk5OV5BMl5BanBnXkFtZTgwODM2NTA0MzE@._V1_SX300.jpg',
+	  splash: '/images/MV5BMjMwNjY2Mjk5OV5BMl5BanBnXkFtZTgwODM2NTA0MzE@._V1_SX300-splash.jpg'
+	}, {
+	  id: 38,
+	  title: 'Black or White',
+	  year: 2014,
+	  duration: 121,
+	  genres: ['Drama'],
+	  cover: '/images/MV5BMTYyMzE2NTE5MV5BMl5BanBnXkFtZTgwNDI3ODI2MzE@._V1_SX300.jpg',
+	  splash: '/images/MV5BMTYyMzE2NTE5MV5BMl5BanBnXkFtZTgwNDI3ODI2MzE@._V1_SX300-splash.jpg',
+	  media: '\\\\NAS\\Cos-a-thon\\Black.or.White.2014.1080p.BluRay.x264-GECKOS\\black.or.white.2014.1080p.bluray.x264-geckos.rar'
+	}, {
+	  id: 39,
+	  title: 'Bull Durham',
+	  year: 1988,
+	  duration: 108,
+	  genres: ['Comedy', 'Romance', 'Sport'],
+	  cover: '/images/MV5BMzMxMDEzMWUtZDk3NS00MWRiLWJjOGMtN2Q0ZjVhZjU3ODhkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg',
+	  splash: '/images/MV5BMzMxMDEzMWUtZDk3NS00MWRiLWJjOGMtN2Q0ZjVhZjU3ODhkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300-splash.jpg'
 	}];
 
 	function _extends() {
