@@ -2,18 +2,14 @@
   "name": "movie-marathon",
   "version": "1.0.0",
   "description": "movie marathon wizard",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
-    "test": "-",
-    "build-scripts": "rollup -c rollup.config.js -i assets/scripts/main.jsx -o public/scripts/test.js"
+    "build-static": "",
+    "build-scripts": "rollup -c rollup.config.js -i scripts/main.jsx -o scripts/bundle.js"
   },
   "author": "Jonas Waldén",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.6.2",
-    "koa-router": "^7.4.0",
-    "koa-static": "^5.0.0",
-    "nunjucks": "^3.1.4",
     "preact": "^8.3.1"
   },
   "devDependencies": {
