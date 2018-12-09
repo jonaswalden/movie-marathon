@@ -85,8 +85,11 @@
 }
 
 .panel--open .panel__background ~ .panel__content button {
-	box-shadow: var(--c-image-shadow), inset var(--c-image-shadow);
 	text-shadow: inherit;
+}
+
+.panel--open .panel__background ~ .panel__content button::after {
+	box-shadow: var(--c-content-shadow);
 }
 
 .panel:not(.panel--open) .panel__background,

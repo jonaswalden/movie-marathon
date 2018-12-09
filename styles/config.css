@@ -1,14 +1,19 @@
 :root {
-	--c-background-props: 255, 255, 255;
-	--c-background: rgb(var(--c-background-props));
-	--c-background--dark-props: 240, 240, 240;
-	--c-background--dark: rgb(var(--c-background--dark-props));
-	--c-foreground-props: 8, 8, 8;
-	--c-foreground: rgb(var(--c-foreground-props));
-	--c-border: rgba(0, 0, 0, 0.2);
-	--c-content-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
-	--c-image-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-	--c-content-shadow--reversed: -2px -2px 3px rgba(0, 0, 0, 0.4);
+	--c-gray-props: 27, 10%;
+
+	--c-background-props: var(--c-gray-props), 100%;
+	--c-background: hsl(var(--c-background-props));
+	--c-background--dark-props: var(--c-gray-props), 94%;
+	--c-background--dark: hsl(var(--c-background--dark-props));
+	
+	--c-foreground-props: var(--c-gray-props), 10%;
+	--c-foreground: hsl(var(--c-foreground-props));
+
+	--c-border: hsla(var(--c-foreground-props), 0.2);
+	
+	--c-content-shadow: 2px 2px 3px hsla(var(--c-foreground-props), 0.4);
+	--c-image-shadow: 2px 2px 3px hsla(var(--c-foreground-props), 0.2);
+	--c-content-shadow--reversed: -2px -2px 3px hsla(var(--c-foreground-props), 0.4);
 
 	--t-line-height: 1.2;
 }

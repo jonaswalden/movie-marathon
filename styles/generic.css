@@ -58,17 +58,30 @@ input {
 }
 
 button {
-	border: 2px solid currentColor;
-	border-radius: 3px;
-	padding: 0.5em 1em;
+	border: solid transparent;
+	border-width: 0 0 2px;
+	padding: 0.5em;
 	background: transparent;
+	cursor: pointer;
+	position: relative;
+}
+
+button::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 2px;
+	bottom: -2px;
+	left: 0;
+	background: currentColor;
 }
 
 input[type=search],
 select {
 	background: transparent;
 	padding: 0.25em 0.25em 0.25em 0;
-	border: solid var(--c-border);
+	border: solid currentColor;
 	border-width: 0 0 2px;
 }
 

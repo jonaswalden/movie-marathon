@@ -17,7 +17,8 @@
 }
 
 .playlist__item__content > button {
-	margin-top: 1.5em;
+	margin: 1em auto 0;
+	display: block;
 }
 
 .playlist__item__content > input {
