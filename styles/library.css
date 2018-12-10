@@ -13,7 +13,7 @@
 	align-self: stretch;
 	top: 0;
 	padding: 1em;
-	margin-top: var(--space);
+	margin: var(--space) calc(-1 * var(--space)) 0;
 	background: var(--c-background--dark);
 	text-align: center;
 	z-index: 1;
