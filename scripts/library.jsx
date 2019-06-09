@@ -75,7 +75,7 @@ export default class Library extends Component {
 
 	selectItem (selectedMovie) {
 		this.props.addPlaylistItem(selectedMovie);
-		
+
 		if (this.state.titleFilter) {
 			this.controls.titleFilter.value = '';
 			this.updateFilter();
@@ -104,7 +104,7 @@ export default class Library extends Component {
 				<label>Sort by</label>
 				<select onChange={this.updateFilter} ref={element => this.controls.sortProperty = element}>
 					<option value="title">Title</option>
-					<option value="year">Year</option>
+					<option value="release">Release</option>
 					<option value="duration">Duration</option>
 				</select>
 
@@ -114,7 +114,7 @@ export default class Library extends Component {
 					<option value="0">Z - A</option>
 				</select>
 			</form>
-			
+
 			<ul>
 				<RandomLibraryItem hide={!state.titleFilter} selectItem={this.selectItem} options={unusedMovies} />
 				{unusedMovies
@@ -123,7 +123,7 @@ export default class Library extends Component {
 						const order = a[state.sortProperty] > b[state.sortProperty];
 						if (!state.sortOrder) return order ? -1 : 1;
 						return order ? 1 : -1;
-					}) 
+					})
 					.map(movie => {
 						return <LibraryItem key={movie.id} select={this.selectItem} movie={movie} />;
 					})}
