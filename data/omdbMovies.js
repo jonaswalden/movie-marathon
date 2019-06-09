@@ -1443,5 +1443,45 @@ export default [
 		"Production": "Summit Entertainment",
 		"Website": "http://www.criminal.movie/",
 		"Response": "True"
+	},
+	{
+		"Title": "The Highwaymen",
+		"Year": "2019",
+		"Rated": "R",
+		"Released": "29 Mar 2019",
+		"Runtime": "132 min",
+		"Genre": "Biography, Crime, Drama, Mystery, Thriller",
+		"Director": "John Lee Hancock",
+		"Writer": "John Fusco",
+		"Actors": "Kevin Costner, Woody Harrelson, Kathy Bates, John Carroll Lynch",
+		"Plot": "A pair of Texas Rangers come out of retirement to catch the infamous outlaws Bonnie and Clyde.",
+		"Language": "English",
+		"Country": "USA",
+		"Awards": "N/A",
+		"Poster": "https://m.media-amazon.com/images/M/MV5BZmM5Y2QzOGQtNTdjZS00NDVhLThkYjItZjZiMjk4YjM0ZTUzXkEyXkFqcGdeQXVyNDg4NjY5OTQ@._V1_SX300.jpg",
+		"Ratings": [
+			{
+				"Source": "Internet Movie Database",
+				"Value": "7.0/10"
+			},
+			{
+				"Source": "Rotten Tomatoes",
+				"Value": "57%"
+			},
+			{
+				"Source": "Metacritic",
+				"Value": "58/100"
+			}
+		],
+		"Metascore": "58",
+		"imdbRating": "7.0",
+		"imdbVotes": "43,657",
+		"imdbID": "tt1860242",
+		"Type": "movie",
+		"DVD": "29 Mar 2019",
+		"BoxOffice": "N/A",
+		"Production": "Netflix",
+		"Website": "N/A",
+		"Response": "True"
 	}
 ];
