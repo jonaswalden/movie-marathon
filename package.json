@@ -1,10 +1,11 @@
 {
   "name": "movie-marathon",
   "version": "1.0.0",
+  "type": "module",
   "description": "movie marathon wizard",
   "main": "src/index.html",
   "scripts": {
-    "start": "http-server .",
+    "start": "http-server . -p 3000",
     "build-scripts": "rollup -c rollup.config.js -i scripts/main.jsx -o scripts/bundle.js"
   },
   "author": "Jonas Waldén",
