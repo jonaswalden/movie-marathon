@@ -4,7 +4,7 @@ import fs from 'fs';
 import http from 'http';
 import path from 'path';
 
-// $ node --experimental-modules utilities/getMovie.js tt1860242
+// $ node --experimental-modules utilities/getMovie.js <imdbID> [...<imdbID>]
 
 const movieIds = process.argv.slice(2);
 console.log('INPUT', movieIds);

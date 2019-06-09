@@ -13,15 +13,15 @@ function format (items, omdbMovie) {
 
   function format (localMeta) {
     return {
-      id: join('-', omdbMovie.imdbID, localMeta.id),
+      id: join('-', omdbMovie.imdbID, localMeta.episode),
       type: omdbMovie.Type,
       title: join(' ', omdbMovie.Title, localMeta.title),
       year: Number(omdbMovie.Year),
-      release: new Date(omdbMovie.Released),
+      release: getRelease(omdbMovie.Released, localMeta.episode),
       duration: localMeta.duration || parseInt(omdbMovie.Runtime),
       genres: omdbMovie.Genre.split(", "),
-      cover: `/images/${join('-', omdbMovie.imdbID)}.jpg`,
-      splash: `/images/${join('-', omdbMovie.imdbID, localMeta.id, 'splash')}.jpg`,
+      cover: localMeta.cover || omdbMovie.Poster,
+      splash: `/images/${join('-', omdbMovie.imdbID, localMeta.episode, 'splash')}.jpg`,
       media: localMeta.media,
     };
   }
@@ -30,5 +30,15 @@ function format (items, omdbMovie) {
     return parts
       .filter(Boolean)
       .join(delimiter);
+  }
+
+  function getRelease (release, order) {
+    release = new Date(release);
+
+    if (order) {
+      release.setMilliseconds(order);
+    }
+
+    return release;
   }
 }
