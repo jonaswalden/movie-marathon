@@ -6,6 +6,7 @@ export default {
 	output: {
 		file: 'public/scripts/test.js',
 		format: "iife",
+		sourcemap: true,
 	},
 	plugins: [
 		nodeResolve(),

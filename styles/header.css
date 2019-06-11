@@ -1,10 +1,58 @@
 header {
+	--char-width: 0.55em;
 	color: var(--c-background);
-	background: var(--c-foreground);
+	background: var(--c-foreground) !important;
 	left: 0;
 	z-index: 1;
 }
 
 header.panel {
 	position: sticky !important;
+}
+
+header h1 {
+	font-size: inherit;
+}
+
+header ol,
+header ul {
+	list-style: none;
+	max-width: calc(40 * var(--char-width));
+	padding: 0;
+	margin-bottom: 0;
+}
+
+header li {
+	display: flex;
+}
+
+header li strong {
+	min-width: calc(3 * var(--char-width));
+	margin-right: var(--char-width);
+}
+
+header ol span,
+header ul strong {
+	flex-grow: 1;
+	min-width: 0;
+	text-overflow: clip;
+	white-space: nowrap;
+	overflow: hidden;
+	margin-right: var(--char-width);
+}
+
+header ol span::after,
+header ul strong::after {
+	content: ' .........................................';
+	font-weight: 400;
+}
+
+header ul::before {
+	content: '————————————————————————————————————————';
+	display: block;
+	margin: 0 0 1em;
+}
+
+header ul span {
+	white-space: nowrap;
 }

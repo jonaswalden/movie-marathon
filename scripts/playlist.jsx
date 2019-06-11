@@ -1,18 +1,22 @@
 import {h, Component} from 'preact';
+import {getTimeStamp} from './timeHelpers.js';
 import Panel from './Panel.jsx';
 
 class ListItem extends Component {
 	constructor (props) {
 		super(props);
-		this.copyMediaUrl = this.copyMediaUrl.bind(this);		
-		this.remove = this.remove.bind(this);		
+		this.copyMediaUrl = this.copyMediaUrl.bind(this);
+		this.remove = this.remove.bind(this);
 	}
 
 	copyMediaUrl () {
 		this.mediaUrlInput.select();
 		document.execCommand('copy');
+		const startTime = new Date();
+		const endTime = new Date(startTime.getTime() + this.props.movie.duration * 60 * 1000);
 		this.props.edit(this.props.movie.id, {
-			startedTime: new Date(),
+			startTime,
+			endTime,
 			status: 1
 		});
 	}
@@ -21,21 +25,13 @@ class ListItem extends Component {
 		this.props.remove(this.props.movie.id)
 	}
 
-	static timeStamp (dateString) {
-		const date = new Date(dateString);
-		return [date.getHours(), date.getMinutes()]
-			.map(n => n.toString())
-			.map(s => s.padStart(2, '0'))
-			.join(':');
-	}
-
 	render (props) {
 		const panelProps = {
 			tag: "li",
 			bullet: `#${props.order}`,
 			label: props.movie.title,
-			meta: props.startedTime && ListItem.timeStamp(props.startedTime) || '',
-			background: props.movie.splash, 
+			meta: props.startedTime && getTimeStamp(props.startedTime) || '',
+			background: props.movie.splash,
 		};
 
 		return <Panel class="playlist__item" {...panelProps}>

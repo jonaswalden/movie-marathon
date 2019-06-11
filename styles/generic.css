@@ -1,4 +1,4 @@
-html, 
+html,
 body {
 	height: 100%;
 }
@@ -6,11 +6,11 @@ body {
 body {
 	margin: 0;
 	font-family: "PF Din Mono", courier new;
-	line-height: var(--line-height);
+	line-height: var(--t-line-height);
 	color: var(--c-foreground);
 	font-size: 20px;
 	position: relative;
-	overflow: auto;
+	overflow: hidden;
 }
 
 h2,
