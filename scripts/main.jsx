@@ -1,5 +1,6 @@
 import * as storage from './storage.js';
 import {h, render, Component} from 'preact';
+import Header from './header.jsx';
 import Library from './library.jsx';
 import movies from '../data/movies.js';
 import Panel from './Panel.jsx';
@@ -31,7 +32,7 @@ class Main extends Component {
 
 		this.setState({
 			playlistItems: [].concat(
-					this.state.playlistItems.slice(0, itemIndex), 
+					this.state.playlistItems.slice(0, itemIndex),
 					this.state.playlistItems.slice(itemIndex + 1)
 				)
 		});
@@ -55,7 +56,7 @@ class Main extends Component {
 
 	render (props, state) {
 		return <body class="panel__container">
-			<Panel tag="header" bullet="☰" label="Cosathon #1 2018" />
+			<Header title={document.title} playlistItems={state.playlistItems} />
 			<Playlist items={state.playlistItems} removeItem={this.removePlaylistItem} editItem={this.editPlaylistItem} />
 			<Library playlistItems={state.playlistItems} addPlaylistItem={this.addPlaylistItem} />
 		</body>;
