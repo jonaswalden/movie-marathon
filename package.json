@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "http-server": "^0.11.1",
-    "preact": "^10.0.0-beta.2"
+    "preact": "^8.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
