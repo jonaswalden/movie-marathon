@@ -13,7 +13,8 @@ class Main extends Component {
 		this.removePlaylistItem = this.removePlaylistItem.bind(this);
 		this.editPlaylistItem = this.editPlaylistItem.bind(this);
 		this.state = {
-			playlistItems: storage.getItem('playlistItems') || []
+			title: storage.getItem('title') || '',
+			playlistItems: storage.getItem('playlistItems') || [],
 		};
 	}
 
@@ -50,13 +51,23 @@ class Main extends Component {
 		});
 	}
 
+	componentDidMount () {
+		this.setState(state => {
+			const title = document.title = state.title || prompt('Title');
+			return {
+				title
+			}
+		});
+	}
+
 	componentDidUpdate () {
+		storage.setItem('title', this.state.title)
 		storage.setItem('playlistItems', this.state.playlistItems)
 	}
 
 	render (props, state) {
 		return <body class="panel__container">
-			<Header title={document.title} playlistItems={state.playlistItems} />
+			<Header title={state.title} playlistItems={state.playlistItems} />
 			<Playlist items={state.playlistItems} removeItem={this.removePlaylistItem} editItem={this.editPlaylistItem} />
 			<Library playlistItems={state.playlistItems} addPlaylistItem={this.addPlaylistItem} />
 		</body>;
