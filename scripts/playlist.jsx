@@ -54,12 +54,10 @@ export default class Playlist extends Component {
 	}
 
 	render (props) {
-		return <section class="playlist">
-			<ol class="panel__container">
-				{props.items.map((item, index) => {
-					return <ListItem key={item.movie.id} order={index + 1} remove={props.removeItem} edit={props.editItem} {...item} />
-				})}
-			</ol>
-		</section>;
+		return <ol class="playlist">
+			{props.items.map((item, index) => {
+				return <ListItem key={item.movie.id} order={index + 1} remove={props.removeItem} edit={props.editItem} {...item} />
+			})}
+		</ol>;
 	}
 }

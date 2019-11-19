@@ -1,9 +1,5 @@
-.playlist > ol {
-	display: flex;
-	overflow: hidden;
-	padding: 0;
-	margin: 0;
-	height: 100%;
+.playlist {
+	display: contents;
 }
 
 .playlist__item__content {
