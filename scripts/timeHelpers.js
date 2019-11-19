@@ -1,5 +1,5 @@
 export function getTimeStamp (dateData) {
-  if (!dateData) return;
+  if (!dateData) return '--:--';
 
   const date = new Date(dateData);
   return [date.getHours(), date.getMinutes()]
@@ -9,7 +9,7 @@ export function getTimeStamp (dateData) {
 }
 
 export function getDateStamp (dateData) {
-  if (!dateData) return;
+  if (!dateData) return '- / -';
 
   const date = new Date(dateData);
   return [date.getDate(), date.getMonth() + 1]
@@ -17,7 +17,7 @@ export function getDateStamp (dateData) {
 }
 
 export function getDurationStamp (timeData) {
-  if (!timeData) return;
+  if (!timeData) return '- h - min';
 
   const minute = 60 * 1000;
   const hour = 60 * minute;
