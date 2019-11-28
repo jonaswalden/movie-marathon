@@ -18,21 +18,24 @@ export default class Panel extends Component {
 		});
 	}
 
+	componentDidMount() {
+		if (!this.props.default) return;
+
+		this.open();
+	}
+
 	render (props) {
 		const attrs = {};
 		attrs.class = props.class ? props.class + ' panel' : 'panel';
-		if (props.default) {
-			attrs.class += ' panel--open';
-		}
 
 		return <props.tag {...attrs} ref={element => this.element = element}>
-			{'background' in props && 
+			{'background' in props &&
 				<img class="panel__background" src={props.background} />
 			}
 			<div class="panel__tab" onClick={this.open}>
 				<strong>{props.bullet}</strong>
 				<span>{props.label}</span>
-				{'meta' in props && 
+				{'meta' in props &&
 					<span>{props.meta}</span>
 				}
 			</div>
