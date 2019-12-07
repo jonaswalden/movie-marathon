@@ -3,3 +3,4 @@ node_modules
 temp
 omdbApiKey.js
 *.pem
+data/localMovieMeta.js
