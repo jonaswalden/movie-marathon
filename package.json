@@ -12,14 +12,14 @@
   "author": "Jonas Waldén",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^0.11.1",
-    "preact": "^8.4.2"
+    "http-server": "^0.12.0"
+		"preact": "^10.0.5",
   },
-  "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/plugin-transform-react-jsx": "^7.1.6",
-    "rollup": "^0.67.3",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-node-resolve": "^3.4.0"
+	"devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-react-jsx": "^7.7.4",
+    "rollup": "^1.27.9",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0"
   }
 }
