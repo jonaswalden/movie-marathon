@@ -43,7 +43,7 @@ class RandomLibraryItem extends Component {
 	}
 
 	render (props, state) {
-		if (!props.hide) return;
+		if (props.hide) return;
 
 		const randomizeButton = <button type="button" onClick={this.randomize}>&nbsp;???&nbsp;</button>;
 		if (state.movie) return <LibraryItem select={this.selectItem} movie={state.movie} externalAction={randomizeButton} />;
@@ -65,12 +65,14 @@ export default class Library extends Component {
 		this.selectItem = this.selectItem.bind(this);
 		this.updateFilter = this.updateFilter.bind(this);
 		this.state = {
-			movies: movies.slice(),
-			titleFilter: '',
+			filtered: false,
+			genreFilter: '',
 			titleFilterPattern: /./i,
 			sortProperty: 'title',
 			sortOrder: true,
 		};
+		this.movies = movies.slice();
+		this.genres = [...(new Set(movies.map(m => m.genres).flat().sort()))];
 	}
 
 	selectItem (selectedMovie) {
@@ -78,15 +80,18 @@ export default class Library extends Component {
 
 		if (this.state.titleFilter) {
 			this.controls.titleFilter.value = '';
+			this.controls.genreFilter.value = '';
 			this.updateFilter();
 		}
 	}
 
 	updateFilter () {
 		const titleFilter = this.controls.titleFilter.value;
+		const genreFilter = this.controls.genreFilter.value;
 		this.setState({
-			titleFilter: titleFilter,
+			filtered: Boolean(titleFilter || genreFilter),
 			titleFilterPattern: new RegExp(titleFilter || '.', 'i'),
+			genreFilter,
 			sortProperty: this.controls.sortProperty.value,
 			sortOrder: !!+this.controls.sortOrder.value,
 		});
@@ -94,12 +99,20 @@ export default class Library extends Component {
 
 	render (props, state) {
 		const usedMovieIds = props.playlistItems.map(item => item.movie.id);
-		const unusedMovies = state.movies.filter(movie => !usedMovieIds.includes(movie.id));
+		const unusedMovies = this.movies.filter(movie => !usedMovieIds.includes(movie.id));
 
 		return <Panel tag="section" id="library" class="library" bullet="+" label="More" default={true}>
 			<form>
 				<label>Search</label>
 				<input type="search" onInput={this.updateFilter} ref={element => this.controls.titleFilter = element} />
+
+				<label>Genre</label>
+				<select onChange={this.updateFilter} ref={element => this.controls.genreFilter = element}>
+					<option value=""></option>
+					{this.genres.map(genre =>
+						<option value={genre}>{genre}</option>
+					)}
+				</select>
 
 				<label>Sort by</label>
 				<select onChange={this.updateFilter} ref={element => this.controls.sortProperty = element}>
@@ -116,9 +129,10 @@ export default class Library extends Component {
 			</form>
 
 			<ul>
-				<RandomLibraryItem hide={!state.titleFilter} selectItem={this.selectItem} options={unusedMovies} />
+				<RandomLibraryItem hide={state.filtered} selectItem={this.selectItem} options={unusedMovies} />
 				{unusedMovies
 					.filter(movie => state.titleFilterPattern.test(movie.title))
+					.filter(movie => !state.genreFilter || movie.genres.includes(state.genreFilter))
 					.sort((a, b) => {
 						const order = a[state.sortProperty] > b[state.sortProperty];
 						if (!state.sortOrder) return order ? -1 : 1;

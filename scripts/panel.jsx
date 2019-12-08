@@ -4,7 +4,6 @@ export default class Panel extends Component {
 	constructor (props) {
 		super(props);
 		this.open = this.open.bind(this);
-
 		props.tag = props.tag || 'div';
 	}
 
